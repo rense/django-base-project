@@ -1,0 +1,13 @@
+bpython
+django
+django-extensions
+djangorestframework
+django-suit
+django-suit-redactor
+fabric
+gunicorn
+MySQL-python
+
+pillow
+pip-tools
+werkzeug
