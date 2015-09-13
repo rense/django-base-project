@@ -29,8 +29,6 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
     is_published = models.BooleanField(default=False)
     published_at = models.DateTimeField(null=True, blank=True)
 
-    show_quote = models.BooleanField(default=False)
-
     class Meta:
         verbose_name = _("article")
         verbose_name_plural = _("articles")

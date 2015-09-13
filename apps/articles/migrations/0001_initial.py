@@ -24,8 +24,7 @@ class Migration(migrations.Migration):
                 ('body', models.TextField()),
                 ('slug', models.SlugField(max_length=130)),
                 ('is_published', models.BooleanField(default=False)),
-                ('published_at', models.DateTimeField(null=True, blank=True)),
-                ('show_quote', models.BooleanField(default=False)),
+                ('published_at', models.DateTimeField(null=True, blank=True))
             ],
             options={
                 'verbose_name': 'article',
