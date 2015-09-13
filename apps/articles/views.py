@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import AllowAny
-from rest_framework.renderers import TemplateHTMLRenderer, JSONRenderer
+from rest_framework.renderers import JSONRenderer
 from rest_framework.response import Response
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
@@ -21,7 +21,7 @@ class ArticleViewSet(ReadOnlyModelViewSet):
     lookup_field = 'slug'
     permission_classes = (AllowAny,)
 
-    renderer_classes = (TemplateHTMLRenderer, JSONRenderer)
+    renderer_classes = (JSONRenderer,)
 
     paginate_by = False
 
@@ -37,15 +37,6 @@ class ArticleViewSet(ReadOnlyModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         article = get_object_or_404(self.get_queryset(), slug=kwargs['slug'])
-
-        if request.accepted_renderer.format == 'html':
-            content = {
-                'active_menu': kwargs['slug'],
-                'article': article,
-            }
-            return Response(content, template_name='site/article.html')
-
-        # JSONRenderer requires serialized data as normal.
         serializer = ArticleSerializer(instance=article)
         return Response(serializer.data)
 

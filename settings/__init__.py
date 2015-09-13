@@ -17,7 +17,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'suit',
-    # 'suit_redactor',
+    'suit_redactor',
     'django.contrib.admin',
 
     'rest_framework',
@@ -45,13 +45,14 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
-
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
-
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
+    ),
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
     )
 }
 

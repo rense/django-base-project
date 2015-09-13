@@ -3,10 +3,19 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
+from rest_framework import routers
+
+from apps.articles.views import ArticleViewSet
 
 admin.autodiscover()
 
-urlpatterns = [
+router = routers.SimpleRouter()
+router.register(r'api/articles', ArticleViewSet, base_name='articles')
+
+urlpatterns = router.urls
+
+urlpatterns += [
+
     url(r'^admin/', include(admin.site.urls)),
 
 
