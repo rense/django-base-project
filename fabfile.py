@@ -42,6 +42,13 @@ def shell():
     )
 
 @task
+def test():
+    clean()
+    local(
+        '%s test -v 2' % (manage_file,)
+    )
+
+@task
 def server():
     """ starts gunicorn
     """

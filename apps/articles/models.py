@@ -61,6 +61,3 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
 
         super(Article, self).save(*args, **kwargs)
 
-
-
-
