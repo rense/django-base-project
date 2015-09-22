@@ -47,20 +47,3 @@ def test():
     local(
         '%s test -v 2' % (manage_file,)
     )
-
-@task
-def server():
-    """ starts gunicorn
-    """
-    local(
-        "/data/home/deploy/web/bin/python /data/home/deploy/web/bin/gunicorn "
-        "--bind=127.0.0.1:%d --daemon --pid=%s --name=duckworld "
-        "--workers=4 --pythonpath=%s wsgi:application" % (
-            settings.SERVER_PORT, gunicorn_pid_file, settings.BASE_DIR
-        )
-    )
-
-@task
-def stop():
-    """ stops gunicorn """
-    local("pkill -F %s" % gunicorn_pid_file)

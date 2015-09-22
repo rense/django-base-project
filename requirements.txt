@@ -8,7 +8,7 @@ blessings==1.6            # via curtsies
 bpython==0.14.2
 click==5.1                # via pip-tools
 curtsies==0.1.19          # via bpython
-django-extensions==1.5.6
+django-extensions==1.5.7
 django-suit-redactor==0.0.2
 django-suit==0.2.14
 django==1.8.4
@@ -17,7 +17,6 @@ ecdsa==0.13               # via paramiko
 fabric==1.10.2
 first==2.0.1              # via pip-tools
 greenlet==0.4.9           # via bpython
-gunicorn==19.3.0
 mysql-python==1.2.5
 paramiko==1.15.2          # via fabric
 pillow==2.9.0
