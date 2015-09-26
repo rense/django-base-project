@@ -29,7 +29,6 @@ SUIT_CONFIG = {
             'label': 'System Management',
             'icon': 'icon-cog',
             'models': (
-                {'model': 'contact.subject', 'label': 'Contact-form subjects'},
                 {'model': 'admin.logentry', 'label': 'Admin Log'},
 
             )
