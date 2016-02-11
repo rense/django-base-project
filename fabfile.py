@@ -3,21 +3,13 @@ import os
 from contextlib import contextmanager
 from fabric.api import task, local
 from fabric.context_managers import settings as fabric_settings
+from environment import base_dir, environment
 
-with open('environment', 'r') as _file:
-    environment = _file.read().replace('\n', '')
-
-os.environ.setdefault(
-    'DJANGO_SETTINGS_MODULE', 'settings.%s' % environment
-)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.%s' % environment)
 
 from django.conf import settings
 
-manage_file = os.path.join(settings.BASE_DIR, 'manage.py')
-
-gunicorn_pid_file = os.path.join(
-    settings.BASE_DIR, settings.PID_DIR, 'gunicorn.pid'
-)
+manage_file = os.path.join(base_dir, 'manage.py')
 
 @contextmanager
 def _continue():
@@ -26,7 +18,7 @@ def _continue():
 
 @task
 def clean():
-    local('find %s -name "*.pyc" -exec rm {} \;' % settings.BASE_DIR)
+    local('find %s -name "*.pyc" -exec rm {} \;' % base_dir)
 
 @task
 def run():

@@ -1,6 +1,6 @@
 import os
+from environment import base_dir as BASE_DIR
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = False
 
