@@ -47,3 +47,8 @@ def test():
     local(
         '%s test -v 2' % (manage_file,)
     )
+
+@task
+def pip():
+    local('pip-compile requirements.in')
+    local('pip-sync requirements.txt')
