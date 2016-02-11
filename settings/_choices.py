@@ -1,0 +1,10 @@
+
+STATUS_DRAFT = 1
+STATUS_PUBLISHED = 2
+STATUS_ARCHIVED = 3
+
+STATUS_CHOICES = (
+    (STATUS_DRAFT, 'draft'),
+    (STATUS_PUBLISHED, 'published'),
+    (STATUS_ARCHIVED, 'archived'),
+)

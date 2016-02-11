@@ -4,9 +4,9 @@ from django.template.defaultfilters import slugify
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-
 from apps.main.model_mixins import CreatedAtModelMixin, UpdatedAtModelMixin
 from apps.articles.managers import ArticleManager
+from apps.main.managers import PublishedManager
 
 
 class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
@@ -20,6 +20,7 @@ class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
 class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
 
     objects = ArticleManager()
+    published = PublishedManager()
 
     title = models.CharField(max_length=128)
     body = models.TextField()
