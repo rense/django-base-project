@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.core.management import call_command
+
 from django.db import models, migrations
 
 
@@ -9,9 +9,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
     ]
-
-    def load_data(apps, schema_editor):
-        call_command("loaddata", "apps/articles/fixtures/initial.json")
 
     operations = [
         migrations.CreateModel(
@@ -43,6 +40,4 @@ class Migration(migrations.Migration):
                 'ordering': ['-created_at'],
             },
         ),
-
-        migrations.RunPython(load_data),
     ]

@@ -16,7 +16,7 @@ class ArticleAdmin(admin.ModelAdmin):
             {'fields': (
                 'title',
                 'slug',
-                'is_published',
+                'published_status',
 
             )}
         ),
@@ -27,7 +27,7 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'slug',
-        'is_published',
+        'published_status',
         'published_at',
         'created_at',
         'updated_at'

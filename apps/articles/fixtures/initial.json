@@ -7,7 +7,7 @@
         "updated_at": "2015-09-12T14:18:55.737Z",
         "published_at": "2015-09-12T16:18:54Z",
         "slug": "terms-and-conditions",
-        "is_published": true
+        "published_status": 2
     },
     "model": "articles.article",
     "pk": 1
@@ -20,7 +20,7 @@
         "updated_at": "2015-09-12T14:19:36.750Z",
         "published_at": "2015-09-12T16:19:35Z",
         "slug": "privacy",
-        "is_published": true
+        "published_status": 2
     },
     "model": "articles.article",
     "pk": 2

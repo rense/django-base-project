@@ -28,7 +28,7 @@ class ArticleViewSet(ReadOnlyModelViewSet):
     serializer_class = ArticleSerializer
 
     def get_queryset(self):
-        return Article.objects.filter_published()
+        return Article.published.all()
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()
