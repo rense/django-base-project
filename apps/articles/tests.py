@@ -1,4 +1,5 @@
 from django.utils import timezone
+from django.conf import settings
 
 from rest_framework import status
 from rest_framework.fields import DateTimeField
@@ -17,7 +18,7 @@ class ArticleTestCase(APITestCase):
         )
 
     def _publish_article(self, published_at=None):
-        self.article.is_published = True
+        self.article.published_status = settings.PUBLISHED_STATUS_PUBLISHED
         if published_at is not None:
             self.article.published_at = published_at
         self.article.save()
@@ -33,9 +34,11 @@ class ArticleTestCase(APITestCase):
         self.assertEqual(self.another_article.slug, 'test-title-1')
 
     def test_article_is_unpublished(self):
-        """ Test article is actually unpublished
+        """ Test article is actually unpublished/draft
         """
-        self.assertEqual(self.article.is_published, False)
+        self.assertEqual(
+            self.article.published_status, settings.PUBLISHED_STATUS_DRAFT
+        )
         url = reverse('articles-detail', args=[self.article.slug])
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
@@ -43,17 +46,20 @@ class ArticleTestCase(APITestCase):
     def test_publish_article(self):
         """ Test publishing an article
         """
-        self.assertEqual(self.article.is_published, False)
+        self.assertEqual(
+            self.article.published_status, settings.PUBLISHED_STATUS_DRAFT
+        )
         self._publish_article()
 
-        self.assertEqual(self.article.is_published, True)
+        self.assertEqual(
+            self.article.published_status, settings.PUBLISHED_STATUS_PUBLISHED
+        )
         self.assertLessEqual(self.article.published_at, timezone.now())
 
     def test_article_is_published(self):
         """ Test fetching a published article
         """
         self._publish_article()
-
         url = reverse('articles-detail', args=[self.article.slug])
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
