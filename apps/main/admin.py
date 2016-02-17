@@ -1,7 +1,30 @@
 from django.contrib import admin
 from django.contrib.admin.models import LogEntry
+from mptt.admin import MPTTModelAdmin
 
 
+class FixedMPTTModelAdmin(MPTTModelAdmin):
+
+    def __init__(self, *args, **kwargs):
+        super(FixedMPTTModelAdmin, self).__init__(*args, **kwargs)
+        mptt_opts = self.model._mptt_meta
+        # Use mptt default ordering
+        self.ordering = (mptt_opts.tree_id_attr, mptt_opts.left_attr)
+        if self.list_display and self.sortable not in self.list_display:
+            self.list_display = list(self.list_display) + [self.sortable]
+        self.list_editable = self.list_editable or []
+        if self.sortable not in self.list_editable:
+            self.list_editable = list(self.list_editable) + [self.sortable]
+        self.exclude = self.exclude or []
+        if self.sortable not in self.exclude:
+            self.exclude = list(self.exclude) + [self.sortable]
+
+    # Return default admin ChangeList
+    def get_changelist(self, request, **kwargs):
+        return admin.views.main.ChangeList
+
+
+@admin.register(LogEntry)
 class LogEntryAdmin(admin.ModelAdmin):
     """ Create an admin view of the history/log table
     """
@@ -39,5 +62,3 @@ class LogEntryAdmin(admin.ModelAdmin):
         del actions['delete_selected']
         return actions
 
-
-admin.site.register(LogEntry, LogEntryAdmin)

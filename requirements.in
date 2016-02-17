@@ -1,6 +1,7 @@
 bpython
 django
 django-extensions
+django-mptt
 djangorestframework
 django-suit
 django-suit-redactor

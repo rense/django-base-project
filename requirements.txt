@@ -9,6 +9,7 @@ bpython==0.15.0
 click==6.2                # via pip-tools
 curtsies==0.2.6           # via bpython
 django-extensions==1.6.1
+django-mptt==0.8.0
 django-suit-redactor==0.0.3
 django-suit==0.2.16
 django==1.9.2

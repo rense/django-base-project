@@ -6,18 +6,20 @@ from django.conf import settings
 from rest_framework import routers
 
 from apps.articles.views import ArticleViewSet
+from apps.menus.views import MenuViewSet
 
 admin.autodiscover()
 
-router = routers.SimpleRouter()
-router.register(r'api/articles', ArticleViewSet, base_name='articles')
+router = routers.DefaultRouter()
+router.register(r'articles', ArticleViewSet, base_name='articles')
+router.register(r'menus', MenuViewSet, base_name='menus')
 
-urlpatterns = router.urls
 
-urlpatterns += [
+urlpatterns = [
+
+    url(r'^api/', include(router.urls)),
 
     url(r'^admin/', include(admin.site.urls)),
-
 
     # 'secret' article-image urls
     url(r"^admin/articleimages/upload/$",

@@ -22,6 +22,7 @@ SUIT_CONFIG = {
             'icon': 'icon-font',
             'models': (
                 'articles.article',
+                'menus.menuitem',
             )
         },
         '-',

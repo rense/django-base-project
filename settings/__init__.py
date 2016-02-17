@@ -18,6 +18,8 @@ INSTALLED_APPS = (
 
     'suit',
     'suit_redactor',
+    'mptt',
+
     'django.contrib.admin',
 
     'rest_framework',
@@ -25,7 +27,8 @@ INSTALLED_APPS = (
     'django_extensions',
 
     'apps.main',
-    'apps.articles',
+    'apps.menus',
+    'apps.articles'
 )
 
 MIDDLEWARE_CLASSES = (
