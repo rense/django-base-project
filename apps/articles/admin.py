@@ -4,6 +4,7 @@ from apps.articles.forms import ArticleAdminForm
 from apps.articles.models import Article, ArticleImage
 
 
+@admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleAdminForm
 
@@ -17,7 +18,6 @@ class ArticleAdmin(admin.ModelAdmin):
                 'title',
                 'slug',
                 'published_status',
-
             )}
         ),
         ('Body', {'classes': ('full-width',), 'fields': ('body',)}),
@@ -35,9 +35,8 @@ class ArticleAdmin(admin.ModelAdmin):
 
     list_display_links = ('title',)
 
-admin.site.register(Article, ArticleAdmin)
 
-
+@admin.register(ArticleImage)
 class ArticleImageAdmin(admin.ModelAdmin):
 
     search_fields = ['body', 'name']
@@ -48,5 +47,3 @@ class ArticleImageAdmin(admin.ModelAdmin):
         'updated_at'
     )
 
-
-admin.site.register(ArticleImage, ArticleImageAdmin)
