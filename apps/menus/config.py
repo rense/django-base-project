@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class MenuConfig(AppConfig):
+class MenusConfig(AppConfig):
 
     label = 'menus'
 
