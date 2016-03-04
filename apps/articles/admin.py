@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from apps.articles.forms import ArticleAdminForm
 from apps.articles.models import Article, ArticleImage
+from apps.main.list_filters import PublishedListFilter
 
 
 @admin.register(Article)
@@ -32,8 +33,9 @@ class ArticleAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at'
     )
-
     list_display_links = ('title',)
+
+    list_filter = (PublishedListFilter,)
 
 
 @admin.register(ArticleImage)
