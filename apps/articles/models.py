@@ -18,6 +18,26 @@ class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
         ordering = ["-created_at"]
 
 
+class ArticleCategory(CreatedAtModelMixin, UpdatedAtModelMixin):
+
+    objects = models.Manager()
+    published = PublishedManager()
+
+    title = models.CharField(max_length=128)
+    slug = models.SlugField(max_length=130, unique=True)
+
+    description = models.TextField(null=True, blank=True)
+
+    is_published = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = _('Article Category')
+        verbose_name_plural = _('Article Categories')
+
+    def __unicode__(self):
+        return self.title
+
+
 class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
 
     objects = ArticleManager()
@@ -27,6 +47,10 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
     body = models.TextField()
 
     slug = models.SlugField(max_length=130)
+
+    category = models.ForeignKey(
+        ArticleCategory, null=True, blank=True, related_name='articles'
+    )
 
     published_status = models.PositiveSmallIntegerField(
         choices=settings.PUBLISHED_STATUS_CHOICES,

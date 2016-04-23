@@ -5,13 +5,21 @@ from django.conf import settings
 
 from rest_framework import routers
 
-from apps.articles.views import ArticleViewSet
+from apps.articles.views import ArticleViewSet, ArticleCategoryViewSet
 from apps.menus.views import MenuViewSet
 
 admin.autodiscover()
 
 router = routers.DefaultRouter()
+
 router.register(r'articles', ArticleViewSet, base_name='articles')
+
+router.register(
+    r'articlecategories',
+    ArticleCategoryViewSet,
+    base_name='article-categories'
+)
+
 router.register(r'menus', MenuViewSet, base_name='menus')
 
 
