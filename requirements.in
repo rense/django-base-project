@@ -1,8 +1,8 @@
 bpython
-django
+django==1.9.5
 django-extensions
 django-mptt
-djangorestframework
+djangorestframework==3.3.3
 django-suit
 django-suit-redactor
 fabric
