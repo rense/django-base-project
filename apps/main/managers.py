@@ -1,6 +1,41 @@
+from django.core.exceptions import FieldDoesNotExist
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+
+
+def get_published(queryset):
+
+    meta = queryset.model._meta
+
+    try:
+        # Check for the simple boolean-field first
+        meta.get_field('is_published')
+        return queryset.filter(is_published=True)
+    except FieldDoesNotExist:
+        try:
+            # Check for the more complex status/published
+            meta.get_field('published_status')
+        except FieldDoesNotExist:
+            # No published fields found. To be safe, return nothing
+            raise Exception("No published fields found")
+
+    queryset = queryset.filter(
+        published_status=settings.PUBLISHED_STATUS_PUBLISHED
+    )
+    try:
+        # Field published_at could be a DateField or a DateTimeField
+        _type = meta.get_field('published_at')
+    except FieldDoesNotExist:
+        # Published as is
+        return queryset
+
+    _type = _type.get_internal_type()
+    if _type == 'DateTimeField':
+        return queryset.filter(published_at__lte=timezone.now())
+    if _type == 'DateField':
+        return queryset.filter(published_at__lte=timezone.now().date())
+    raise Exception("Published fields of unknown type")
 
 
 class PublishedManager(models.Manager):
@@ -14,36 +49,9 @@ class PublishedManager(models.Manager):
     checks for 'published_status', which should be STATUS_PUBLISHED,
     will then also check for an optional 'published_at' field.
 
-    Returns normal queryset if none of the above can be found.
+    Raises exceptions if fields are not found
     """
-
     def get_queryset(self):
         queryset = super(PublishedManager, self).get_queryset()
+        return get_published(queryset)
 
-        _field_names = self.model._meta.get_fields()
-
-        # check for the simple boolean-field first
-        for field in _field_names:
-            if field.name == 'is_published':
-                return queryset.filter(is_published=True)
-            if field.name == 'published_status':
-                # check for the more complex status/published
-                queryset = queryset.filter(
-                    published_status=settings.PUBLISHED_STATUS_PUBLISHED
-                )
-
-                # published_at should be either a DateField or a DateTimeField
-                _type = self.model._meta.get_field('published_at')
-                if _type is None:
-                    return queryset
-
-                _type = _type.get_internal_type()
-                if _type == 'DateTimeField':
-                    return queryset.filter(
-                        published_at__lte=timezone.now()
-                    )
-                if _type == 'DateField':
-                    return queryset.filter(
-                        published_at__lte=timezone.now().date()
-                    )
-        return queryset

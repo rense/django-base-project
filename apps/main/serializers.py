@@ -1,16 +1,14 @@
 from rest_framework import serializers
 
-from django.utils import timezone
-from django.conf import settings
+from apps.main.managers import get_published
 
 
 class PublishedListSerializer(serializers.ListSerializer):
+    """ DRF ListSerializer that returns published items
+    """
 
     def to_representation(self, data):
-        data = data.filter(
-            published_status=settings.PUBLISHED_STATUS_PUBLISHED,
-            published_at__lte=timezone.now()
-        )
+        data = get_published(data)
         return super(PublishedListSerializer, self).to_representation(data)
 
 
