@@ -13,7 +13,7 @@ django-extensions==1.6.1
 django-mptt==0.8.3
 django-suit-redactor==0.0.3
 django-suit==0.2.18
-django==1.9.5
+django==1.9.6
 djangorestframework==3.3.3
 ecdsa==0.13               # via paramiko
 fabric==1.11.1

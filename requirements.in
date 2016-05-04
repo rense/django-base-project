@@ -1,5 +1,5 @@
 bpython
-django==1.9.5
+django==1.9.6
 django-extensions
 django-mptt
 djangorestframework==3.3.3
