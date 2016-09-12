@@ -6,6 +6,7 @@ from django.conf import settings
 from rest_framework import routers
 
 from apps.articles.views import ArticleViewSet, ArticleCategoryViewSet
+from apps.articles.views import upload_article_image, recent_article_images
 from apps.menus.views import MenuViewSet
 
 admin.autodiscover()
@@ -26,17 +27,14 @@ router.register(r'menus', MenuViewSet, base_name='menus')
 urlpatterns = [
 
     url(r'^api/', include(router.urls)),
-
     url(r'^admin/', include(admin.site.urls)),
 
     # 'secret' article-image urls
     url(r"^admin/articleimages/upload/$",
-        'apps.articles.views.upload_article_image',
-        name="upload_article_image"
+        upload_article_image, name="upload_article_image"
     ),
     url(r"^admin/articleimages/recent/$",
-        'apps.articles.views.recent_article_images',
-        name="recent_article_images"
+        recent_article_images, name="recent_article_images"
     ),
 ]
 
