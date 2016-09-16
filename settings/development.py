@@ -4,23 +4,24 @@ DEBUG = True
 
 SECRET_KEY = 'development-nonsense-key'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
 
-        'NAME': 'development',
+DATABASE_DEFAULT = {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'development',
+    'USER': 'development',
+    'PASSWORD': 'development',
 
-        'USER': 'development',
-        'PASSWORD': 'development',
-
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': 'SET storage_engine=INNODB, '
-                            'sql_mode=\'STRICT_TRANS_TABLES\'',
-        }
+    'HOST': '127.0.0.1',
+    'PORT': '3306',
+    'OPTIONS': {
+        'init_command': "SET storage_engine=INNODB, sql_mode='STRICT_ALL_TABLES'"
     }
 }
+
+DATABASES = {
+    'default': DATABASE_DEFAULT
+}
+
 
 LOGGING = {
     'version': 1,
