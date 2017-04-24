@@ -4,27 +4,31 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+asn1crypto==0.22.0        # via cryptography
 blessings==1.6            # via curtsies
 bpython==0.15.0
-click==6.6                # via pip-tools
+cffi==1.10.0              # via cryptography
+cryptography==1.8.1       # via paramiko
 curtsies==0.2.6           # via bpython
 django-extensions==1.7.1
 django-mptt==0.8.6
 django-suit-redactor==0.0.4
 django-suit==0.2.20
-django==1.10.1
+django==1.11
 djangorestframework==3.4.6
-ecdsa==0.13               # via paramiko
-fabric==1.12.0
-first==2.0.1              # via pip-tools
+fabric3==1.13.1.post1
 greenlet==0.4.10          # via bpython
-MySQL-python==1.2.5
-paramiko==1.17.2          # via fabric
+idna==2.5                 # via cryptography
+mysqlclient==1.3.10
+packaging==16.8           # via cryptography
+paramiko==2.1.2           # via fabric3
 pillow==3.3.0
-pip-tools==1.7.0
-pycrypto==2.6.1           # via paramiko
+pyasn1==0.2.3             # via paramiko
+pycparser==2.17           # via cffi
 pygments==2.1.3           # via bpython
+pyparsing==2.2.0          # via packaging
+pytz==2017.2              # via django
 requests==2.11.0          # via bpython
-six==1.10.0               # via bpython, django-extensions, pip-tools
+six==1.10.0               # via bpython, cryptography, django-extensions, fabric3, packaging
 wcwidth==0.1.7            # via curtsies
 werkzeug==0.11.10

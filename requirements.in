@@ -1,13 +1,16 @@
 bpython
-django==1.10.1
+
+django==1.11
 django-extensions
 django-mptt
-djangorestframework==3.4.6
+djangorestframework
 django-suit
 django-suit-redactor
-fabric
-MySQL-python
+
+fabric3
+
+mysqlclient
 
 pillow
-pip-tools
+
 werkzeug

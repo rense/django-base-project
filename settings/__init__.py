@@ -7,6 +7,9 @@ DEBUG = False
 SITE_ID = 1
 ALLOWED_HOSTS = []
 
+SITE_TITLE = 'Base Project'
+SITE_ADMIN_TITLE = '{} Administration'.format(SITE_TITLE)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -30,6 +33,7 @@ INSTALLED_APPS = (
     'apps.menus',
     'apps.articles'
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -59,29 +63,27 @@ REST_FRAMEWORK = {
     )
 }
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
-        ],
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'DIRS': [
+        os.path.join(BASE_DIR, 'templates')
+    ],
+    'OPTIONS': {
+        'context_processors': [
+            'django.template.context_processors.debug',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
+            'django.template.context_processors.media',
+            'django.template.context_processors.static',
 
-                'django.template.context_processors.request',
-            ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-            ]
-        },
+            'django.template.context_processors.request',
+        ],
+        'loaders': [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+        ]
     },
-]
+}]
 
 ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
@@ -94,7 +96,7 @@ USE_L10N = True
 USE_TZ = True
 
 # import choices/constants
-from _choices import *
+from settings._choices import *
 
 # import django-suit configuration
-from _suit import *
+from settings._suit import *

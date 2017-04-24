@@ -1,6 +1,7 @@
 # django-base-project
 
 A base "scaffold" for a new Django (REST) project that some people - but mostly myself - find very handy. 
+It's now Python 3 only.
 
 ### Features
 This heavily resembles my favourite workflow and tools, so some things will differ from 'normal' Django projects.
@@ -10,7 +11,6 @@ It contains:
 - a 'main' app, containing useful model-mixins and a default viewset;
 - a base 'articles' app - every project seems to need one;
     - The admin uses django-suit-redactor for text-areas; 
-    - Has a couple of (fake) fixtures to get started with;
     - See apps/articles/forms.py for formatting/editor options 
 - a basic 'menus' app, using MPTT for the tree-structure (https://github.com/django-mptt/django-mptt) together with django-suit its SortableModelAdmin;
 - a shiny django-suit admin (http://djangosuit.com/):
@@ -23,19 +23,19 @@ It contains:
 
 
 ### Requirements/dependencies
-My base tools, including django-extensions, django-suit, pip-tools, bpython, fabric, etc;
+My base tools, including django-extensions, django-suit, pip-tools, bpython, fabric3, etc;
 Check out https://github.com/nvie/pip-tools if you're unfamiliar with pip-tools. Then have a look at requirements.in for base requirements. 
-The default development settings contain mysql-settings, because I'm old like that. Change to your liking obviously.
+The default development settings contain mysql-settings. Change to your liking.
 
 - runserver_plus for development, gunicorn for staging/production;
 
 
 ### Getting started
-- Create a new virtualenv;
-- Install pip-tools and fabric: `$ pip install pip-tools fabric`;
+- Create a new virtualenv with Python3: `$ virtualenv --python=python3 <env-name>`;
+- Install pip-tools and fabric3: `$ pip install pip-tools fabric3`;
 - Clone/download/archive this repository and cd into it;
 - Create your environment file, for instance 'development': `$ echo "development" > environment`;
-- Edit settings/development to your liking (database-settings, etc...);
+- Edit the corresponding settings/development to your liking (database-settings, etc...);
 - Install base requirements: `$ fab pip`;
 - run `$ ./manage.py migrate`;
 

@@ -9,7 +9,7 @@ from apps.articles.views import ArticleViewSet, ArticleCategoryViewSet
 from apps.articles.views import upload_article_image, recent_article_images
 from apps.menus.views import MenuViewSet
 
-admin.autodiscover()
+admin.site.site_header = settings.SITE_ADMIN_TITLE
 
 router = routers.DefaultRouter()
 
