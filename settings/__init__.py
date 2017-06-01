@@ -1,7 +1,6 @@
 import os
 from environment import base_dir as BASE_DIR
 
-
 DEBUG = False
 
 SITE_ID = 1
@@ -87,6 +86,13 @@ TEMPLATES = [{
 
 ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
+
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+]
 
 LANGUAGE_CODE = 'en-us'
 
