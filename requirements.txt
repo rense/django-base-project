@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+-e git+https://github.com/rense/django-rest-camel#egg=django-rest-camel
 blessings==1.6            # via curtsies
 bpython==0.16
 certifi==2017.7.27.1      # via requests

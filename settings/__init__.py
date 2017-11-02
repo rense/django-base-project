@@ -53,11 +53,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
+        'rest_camel.render.CamelCaseJSONRenderer',
     ),
     'DEFAULT_PARSER_CLASSES': (
-        'rest_framework.parsers.JSONParser',
-    )
+        'rest_camel.parser.CamelCaseJSONParser',
+    ),
 }
 
 TEMPLATES = [{

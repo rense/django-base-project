@@ -1,3 +1,5 @@
+-e git+https://github.com/rense/django-rest-camel#egg=django-rest-camel
+
 bpython
 
 django==1.11.7

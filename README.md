@@ -18,7 +18,7 @@ It contains:
     - Basic site-wide 'Latest Actions' admin functionality (not per user);
     - See 'getting started' below for django-suit-redactor problems.
 - an admin list-display for the internal django admin-log (extended Latest Actions stuff);
-
+- django-rest-camel for DRF renderers/parsers; automatic camelcase to snake-case (and vice-versa) conversion;
 - basic invoke commands for local development (`inv run`!), see tasks.py;
 
 
