@@ -19,12 +19,12 @@ It contains:
     - See 'getting started' below for django-suit-redactor problems.
 - an admin list-display for the internal django admin-log (extended Latest Actions stuff);
 
-- basic fabric commands for local development (`fab run`!), see fabfile.py;
+- basic invoke commands for local development (`inv run`!), see tasks.py;
 
 
 ### Requirements/dependencies
-My base tools, including django-extensions, django-suit, pip-tools, bpython, fabric3, etc;
-Check out https://github.com/nvie/pip-tools if you're unfamiliar with pip-tools. Then have a look at requirements.in for base requirements. 
+Base tools, including django-extensions, django-suit, pip-tools, bpython, invoke, etc;
+Check out https://github.com/jazzband/pip-tools if you're unfamiliar with pip-tools. Then have a look at requirements.in for base requirements. 
 The default development settings contain mysql-settings. Change to your liking.
 
 - runserver_plus for development, gunicorn for staging/production;
@@ -32,15 +32,16 @@ The default development settings contain mysql-settings. Change to your liking.
 
 ### Getting started
 - Create a new virtualenv with Python3: `$ virtualenv --python=python3 <env-name>`;
-- Install pip-tools and fabric3: `$ pip install pip-tools fabric3`;
+- Install pip-tools and invoke: `$ pip install pip-tools invoke`;
 - Clone/download/archive this repository and cd into it;
 - Create your environment file, for instance 'development': `$ echo "development" > environment`;
 - Edit the corresponding settings/development to your liking (database-settings, etc...);
-- Install base requirements: `$ fab pip`;
-- run `$ ./manage.py migrate`;
+- Install base requirements: `$ inv pip`;
+- run `$ inv migrate`;
 
 
 ### Notes
+- If installing Pillow fails (jpeg required), see https://stackoverflow.com/a/34631976
 - Django-suit problems: django-suit-redactor is old! I can't add the latest version of Redactor (10.2.2) because of licensing.
     - Get your own version (http://imperavi.com/redactor) and put its files in apps/articles/static/suit-redactor/;
     - Remove django-suit-redactor from installed-apps.
@@ -48,3 +49,4 @@ The default development settings contain mysql-settings. Change to your liking.
       
 ### TODO
 - Menus app tests
+- Replace djang-suit-redactor
