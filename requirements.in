@@ -1,13 +1,13 @@
 bpython
 
-django==1.11
+django==1.11.7
 django-extensions
 django-mptt
 djangorestframework
 django-suit
 django-suit-redactor
 
-fabric3
+invoke
 
 mysqlclient
 
