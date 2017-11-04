@@ -8,8 +8,8 @@ SECRET_KEY = 'development-nonsense-key'
 DATABASE_DEFAULT = {
     'ENGINE': 'django.db.backends.mysql',
     'NAME': 'django-base-project',
-    'USER': 'django-base-project',
-    'PASSWORD': 'django-base-project',
+    'USER': 'dbp-user',
+    'PASSWORD': 'dbp-password',
 
     'HOST': '127.0.0.1',
     'PORT': '3306',
