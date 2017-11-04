@@ -60,6 +60,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'rest_camel.parser.CamelCaseJSONParser',
     ),
+    'DEFAULT_METADATA_CLASS': 'apps.main.metadata.NoMetadata',
 }
 
 
