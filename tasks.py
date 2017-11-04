@@ -33,7 +33,7 @@ def pip(context):
 
 @task
 def shell(context):
-    context.run('{}} shell_plus'.format(manage_file), pty=True)
+    context.run('{} shell_plus'.format(manage_file), pty=True)
 
 
 @task
