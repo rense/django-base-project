@@ -22,7 +22,7 @@ class ArticleAdmin(admin.ModelAdmin):
                 'published_status',
             )}
         ),
-        ('Body', {'classes': ('full-width',), 'fields': ('body',)}),
+        ('Body', {'classes': ('full',), 'fields': ('body',)}),
         ('Dates', {'fields': ('published_at', 'created_at', 'updated_at')}),
     ]
 

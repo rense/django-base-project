@@ -7,9 +7,7 @@ django-extensions
 django-mptt
 djangorestframework
 djangorestframework-jwt
-
 django-suit
-django-suit-redactor
 
 invoke
 

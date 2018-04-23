@@ -5,5 +5,3 @@ __pycache__/
 .idea/*
 environment
 /media/*
-/apps/articles/static/suit-redactor/redactor/*
-

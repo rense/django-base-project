@@ -20,7 +20,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'suit',
-    'suit_redactor',
     'mptt',
 
     'django.contrib.admin',
