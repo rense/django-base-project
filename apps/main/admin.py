@@ -61,4 +61,3 @@ class LogEntryAdmin(admin.ModelAdmin):
         actions = super(LogEntryAdmin, self).get_actions(request)
         del actions['delete_selected']
         return actions
-

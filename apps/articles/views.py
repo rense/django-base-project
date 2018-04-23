@@ -1,4 +1,3 @@
-
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
@@ -70,6 +69,7 @@ def upload_article_image(request):
         article_image = ArticleImage.objects.create(image=_file)
         article_images.append({"filelink": article_image.image.url})
     return JsonResponse(article_images, safe=False)
+
 
 @login_required
 def recent_article_images(request):

@@ -2,7 +2,7 @@
 
 bpython
 
-django==1.11.7
+django
 django-extensions
 django-mptt
 djangorestframework

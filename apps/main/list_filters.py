@@ -5,7 +5,6 @@ from django.conf import settings
 
 
 class DefaultListFilter(SimpleListFilter):
-
     all_value = '_all_'
 
     def queryset(self, request, queryset):
@@ -13,9 +12,9 @@ class DefaultListFilter(SimpleListFilter):
             if request.GET[self.parameter_name] == self.all_value:
                 return queryset
             return queryset.filter(
-                **{self.parameter_name:request.GET[self.parameter_name]}
+                **{self.parameter_name: request.GET[self.parameter_name]}
             )
-        return queryset.filter(**{self.parameter_name:self.default_value()})
+        return queryset.filter(**{self.parameter_name: self.default_value()})
 
     def choices(self, _class):
         yield {
@@ -70,5 +69,3 @@ class PublishedListFilter(DefaultListFilter):
         if self.parameter_name == 'published_status':
             return settings.PUBLISHED_STATUS_PUBLISHED
         return 1
-
-

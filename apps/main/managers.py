@@ -5,7 +5,6 @@ from django.utils import timezone
 
 
 def get_published(queryset):
-
     meta = queryset.model._meta
 
     try:
@@ -51,7 +50,7 @@ class PublishedManager(models.Manager):
 
     Raises exceptions if fields are not found
     """
+
     def get_queryset(self):
         queryset = super(PublishedManager, self).get_queryset()
         return get_published(queryset)
-

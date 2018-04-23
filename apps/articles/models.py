@@ -11,7 +11,6 @@ from apps.main.managers import PublishedManager
 
 
 class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
-
     image = models.ImageField(upload_to="articleimages/")
 
     class Meta:
@@ -19,7 +18,6 @@ class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
 
 
 class ArticleCategory(CreatedAtModelMixin, UpdatedAtModelMixin):
-
     objects = models.Manager()
     published = PublishedManager()
 
@@ -39,7 +37,6 @@ class ArticleCategory(CreatedAtModelMixin, UpdatedAtModelMixin):
 
 
 class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
-
     objects = ArticleManager()
     published = PublishedManager()
 
@@ -49,7 +46,10 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
     slug = models.SlugField(max_length=130)
 
     category = models.ForeignKey(
-        ArticleCategory, null=True, blank=True, related_name='articles'
+        ArticleCategory,
+        null=True, blank=True,
+        related_name='articles',
+        on_delete=models.SET_NULL
     )
 
     published_status = models.PositiveSmallIntegerField(
@@ -90,4 +90,3 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
         self.slug = _slug
 
         super(Article, self).save(*args, **kwargs)
-

@@ -6,7 +6,6 @@ from apps.main.serializers import RecursiveField
 
 
 class MenuItemSerializer(serializers.ModelSerializer):
-
     children = RecursiveField(many=True, required=True)
     target = serializers.SerializerMethodField()
 

@@ -19,7 +19,8 @@ class MenuItem(MPTTModel):
 
     parent = TreeForeignKey(
         'self', null=True, blank=True,
-        related_name='children'
+        related_name='children',
+        on_delete=models.CASCADE
     )
 
     target = models.PositiveSmallIntegerField(
@@ -44,6 +45,3 @@ class MenuItem(MPTTModel):
     def save(self, *args, **kwargs):
         super(MenuItem, self).save(*args, **kwargs)
         MenuItem.objects.rebuild()
-
-
-

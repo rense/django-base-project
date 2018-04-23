@@ -68,6 +68,7 @@ class HasChangedMixin(models.Model):
         def ignore_has_changed_fields(self):
             return ['<fieldname>']
     """
+
     class Meta:
         abstract = True
 
@@ -114,9 +115,10 @@ class HasChangedMixin(models.Model):
         return model_to_dict(self, _fields)
 
 
-class ModelMixinBundle(HashedKeyModelMixin, CreatedAtModelMixin, UpdatedAtModelMixin, HasChangedMixin):
+class ModelMixinBundle(HashedKeyModelMixin, CreatedAtModelMixin,
+                       UpdatedAtModelMixin, HasChangedMixin):
     """ Mixin-bundle with our three base model-mixins
     """
+
     class Meta:
         abstract = True
-

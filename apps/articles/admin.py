@@ -40,7 +40,6 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(ArticleCategory)
 class ArticleCategoryAdmin(admin.ModelAdmin):
-
     readonly_fields = ['created_at', 'updated_at']
     prepopulated_fields = {'slug': ('title',)}
 
@@ -63,7 +62,6 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(ArticleImage)
 class ArticleImageAdmin(admin.ModelAdmin):
-
     search_fields = ['body', 'name']
     readonly_fields = ['created_at', 'updated_at']
 
@@ -71,4 +69,3 @@ class ArticleImageAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at'
     )
-

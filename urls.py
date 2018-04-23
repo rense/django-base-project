@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api/login/', obtain_jwt_token),
 
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 
     # 'secret' article-image urls
     url(r"^admin/articleimages/upload/$",
@@ -41,5 +41,10 @@ urlpatterns = [
     ),
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.STATIC_URL, document_root=settings.STATIC_ROOT
+    )
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+    )

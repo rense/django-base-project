@@ -8,7 +8,6 @@ from apps.menus.serializers import MenuItemSerializer
 
 
 class MenuViewSet(ReadOnlyModelViewSet):
-
     model = MenuItem
     lookup_field = 'pk'
     permission_classes = (AllowAny,)
@@ -22,4 +21,3 @@ class MenuViewSet(ReadOnlyModelViewSet):
         queryset = self.get_queryset().filter(parent__isnull=True)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
-
