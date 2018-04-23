@@ -5,8 +5,11 @@ from apps.main.serializers import PublishedListSerializer
 
 
 class ArticleSerializer(serializers.ModelSerializer):
+
     date_published = serializers.DateTimeField(source='published_at')
-    category = serializers.SlugField(source='category.slug')
+    category = serializers.SerializerMethodField()
+
+    ist_serializer_class = PublishedListSerializer
 
     class Meta:
         model = Article
@@ -18,25 +21,15 @@ class ArticleSerializer(serializers.ModelSerializer):
             'date_published'
         )
 
+    def get_category(self, article):
+        if article.category:
+            return article.category.slug
+        return None
 
-class ArticleListSerializer(serializers.ModelSerializer):
-    date_published = serializers.DateTimeField(source='published_at')
-    category = serializers.SlugField(source='category.slug')
-
-    class Meta:
-        model = Article
-        list_serializer_class = PublishedListSerializer
-
-        fields = (
-            'slug',
-            'title',
-            'category',
-            'date_published'
-        )
 
 
 class ArticleCategorySerializer(serializers.ModelSerializer):
-    articles = ArticleListSerializer(read_only=True, many=True)
+    articles = ArticleSerializer(read_only=True, many=True)
 
     class Meta:
         model = ArticleCategory

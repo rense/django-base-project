@@ -7,7 +7,6 @@ from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
 from apps.articles.views import ArticleViewSet, ArticleCategoryViewSet
-from apps.articles.views import upload_article_image, recent_article_images
 from apps.menus.views import MenuViewSet
 
 admin.site.site_header = settings.SITE_ADMIN_TITLE
@@ -26,19 +25,10 @@ router.register(r'menus', MenuViewSet, base_name='menus')
 
 
 urlpatterns = [
-
     url(r'^api/', include(router.urls)),
     url(r'^api/login/', obtain_jwt_token),
 
     url(r'^admin/', admin.site.urls),
-
-    # 'secret' article-image urls
-    url(r"^admin/articleimages/upload/$",
-        upload_article_image, name="upload_article_image"
-    ),
-    url(r"^admin/articleimages/recent/$",
-        recent_article_images, name="recent_article_images"
-    ),
 ]
 
 if settings.DEBUG:

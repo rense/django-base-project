@@ -1,3 +1,5 @@
+import json
+
 from django.utils import timezone
 from django.conf import settings
 
@@ -73,52 +75,31 @@ class ArticleTestCase(APITestCase):
 
     def test_article_list(self):
         """ Test for fetching only published articles
+            Which in this test should equal no articles.
         """
         url = reverse('articles-list')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            response.data, [
-                {
-                    'slug': u'terms-and-conditions',
-                    'title': u'Terms and Conditions',
-                    'date_published': u'2015-09-12T16:18:54Z'
-                },
-                {
-                    'slug': u'privacy',
-                    'title': u'Privacy',
-                    'date_published': u'2015-09-12T16:19:35Z'
-                },
-            ]
+            json.loads(response.content), []
         )
 
     def test_article_list_after_publishing(self):
         """ Test fetching only published articles after publishing one
+            Also testing the camel-case renderer here ('datePublished')
         """
         now = timezone.now()
-        self._publish_article(now)
+        self._publish_article(published_at=now)
 
         url = reverse('articles-list')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            response.data, [
-                {
-                    'slug': u'terms-and-conditions',
-                    'title': u'Terms and Conditions',
-                    'date_published': u'2015-09-12T16:18:54Z'
-                },
-                {
-                    'slug': u'privacy',
-                    'title': u'Privacy',
-                    'date_published': u'2015-09-12T16:19:35Z'
-                },
-                {
-                    'slug': u'test-title',
-                    'title': u'Test title',
-                    'date_published': DateTimeField().to_representation(now)
-                },
-            ]
+            json.loads(response.content), [{
+                'category': None,
+                'title': u'Test title',
+                'body': u'Test article body',
+                'slug': u'test-title',
+                'datePublished': DateTimeField().to_representation(now)
+            }]
         )
-
-

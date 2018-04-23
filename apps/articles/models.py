@@ -66,10 +66,9 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
         return self.title
 
     def save(self, *args, **kwargs):
-        _now = timezone.now()
         if self.published_status == settings.PUBLISHED_STATUS_PUBLISHED:
             if not self.published_at:
-                self.published_at = _now
+                self.published_at = timezone.now()
 
         if not len(self.slug.strip()):
             self.slug = slugify(self.title)
@@ -88,5 +87,4 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
             _count += 1
 
         self.slug = _slug
-
         super(Article, self).save(*args, **kwargs)
