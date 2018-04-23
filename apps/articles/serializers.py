@@ -1,15 +1,11 @@
 from rest_framework import serializers
 
 from apps.articles.models import Article, ArticleCategory
-from apps.main.serializers import PublishedListSerializer
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-
     date_published = serializers.DateTimeField(source='published_at')
     category = serializers.SerializerMethodField()
-
-    ist_serializer_class = PublishedListSerializer
 
     class Meta:
         model = Article
@@ -25,7 +21,6 @@ class ArticleSerializer(serializers.ModelSerializer):
         if article.category:
             return article.category.slug
         return None
-
 
 
 class ArticleCategorySerializer(serializers.ModelSerializer):
