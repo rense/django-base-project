@@ -1,6 +1,6 @@
 import os
 
-from invoke import task, Exit
+from invoke import task
 
 from environment import base_dir, environment
 
