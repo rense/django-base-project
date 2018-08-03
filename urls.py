@@ -8,7 +8,6 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 from apps.articles.views import ArticleViewSet, ArticleCategoryViewSet
 from apps.main.views import robots
-from apps.menus.views import MenuViewSet
 
 admin.site.site_header = settings.SITE_ADMIN_TITLE
 
@@ -21,8 +20,6 @@ router.register(
     ArticleCategoryViewSet,
     base_name='article-categories'
 )
-
-router.register(r'menus', MenuViewSet, base_name='menus')
 
 urlpatterns = [
     path('api/', include(router.urls)),

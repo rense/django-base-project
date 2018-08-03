@@ -1,13 +1,13 @@
+from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
-from django.conf import settings
 
-from apps.main.model_mixins import CreatedAtModelMixin, UpdatedAtModelMixin
 from apps.articles.managers import ArticleManager
 from apps.main.managers import PublishedManager
+from apps.main.model_mixins import CreatedAtModelMixin, UpdatedAtModelMixin
 
 
 class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):

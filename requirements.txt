@@ -12,8 +12,6 @@ chardet==3.0.4            # via requests
 curtsies==0.3.0           # via bpython
 django-cors-headers==2.4.0
 django-extensions==2.1.0
-django-js-asset==1.1.0    # via django-mptt
-django-mptt==0.9.1
 django-suit==0.2.26
 django==2.1
 djangorestframework-jwt==1.11.0

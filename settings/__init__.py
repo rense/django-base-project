@@ -20,13 +20,11 @@ INSTALLED_APPS = (
 
     'suit',
     'corsheaders',
-    'mptt',
     'django.contrib.admin',
     'rest_framework',
     'django_extensions',
 
     'apps.main',
-    'apps.menus',
     'apps.articles'
 )
 

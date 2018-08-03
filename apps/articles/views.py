@@ -27,7 +27,7 @@ class ArticleViewSet(ReadOnlyModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         article = get_object_or_404(self.get_queryset(), slug=kwargs['slug'])
-        serializer =  self.get_serializer(instance=article)
+        serializer = self.get_serializer(instance=article)
         return Response(serializer.data)
 
 

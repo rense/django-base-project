@@ -1,7 +1,7 @@
-from django.utils.translation import gettext as _
+from django.conf import settings
 from django.contrib.admin import SimpleListFilter
 from django.utils.encoding import force_text
-from django.conf import settings
+from django.utils.translation import gettext as _
 
 
 class DefaultListFilter(SimpleListFilter):

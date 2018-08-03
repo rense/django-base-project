@@ -1,8 +1,7 @@
 import json
 
-from django.utils import timezone
 from django.conf import settings
-
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.fields import DateTimeField
 from rest_framework.reverse import reverse
