@@ -10,7 +10,6 @@ It contains:
 - a 'settings' package/directory. Base settings are in settings/__init__.py, and can be overridden/expanded in environment-based settings-files, for example settings/development.py. An environment-file containing the name of the environment is expected. See 'getting started' below. I guess it's a bit like `https://code.djangoproject.com/wiki/SplitSettings#SimplePackageOrganizationforEnvironments`, but simpler.
 - a 'main' app, containing useful model-mixins and a default viewset;
 - a base 'articles' app;
-- a basic 'menus' app, using MPTT for the tree-structure (https://github.com/django-mptt/django-mptt) together with django-suit its SortableModelAdmin;
 - a shiny django-suit admin (http://djangosuit.com/):
     - AdminSite override, showing a custom admin 'home' (apps/main/admin_site.py);
     - Basic site-wide 'Latest Actions' admin functionality (not per user);
@@ -41,8 +40,4 @@ The default development settings contain mysql-settings. Change to your liking.
 
 ### Notes
 - If installing Pillow fails (jpeg required), see https://stackoverflow.com/a/34631976
-
-      
-### TODO
-- Menus app tests
 
