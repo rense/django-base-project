@@ -5,6 +5,7 @@
 #    pip-compile --output-file requirements.txt requirements.in
 #
 -e git+https://github.com/rense/django-rest-camel#egg=django-rest-camel
+-e git+https://github.com/rense/django-suit.git@v2#egg=django-suit
 blessings==1.7            # via curtsies
 bpython==0.17.1
 certifi==2018.4.16        # via requests
@@ -12,7 +13,6 @@ chardet==3.0.4            # via requests
 curtsies==0.3.0           # via bpython
 django-cors-headers==2.4.0
 django-extensions==2.1.0
-django-suit==0.2.26
 django==2.1
 djangorestframework-jwt==1.11.0
 djangorestframework==3.8.2

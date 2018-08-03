@@ -18,7 +18,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'suit',
+    'apps.main.suit_config.SuitConfig',
     'corsheaders',
     'django.contrib.admin',
     'rest_framework',
