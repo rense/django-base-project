@@ -10,13 +10,6 @@ from apps.main.managers import PublishedManager
 from apps.main.model_mixins import CreatedAtModelMixin, UpdatedAtModelMixin
 
 
-class ArticleImage(CreatedAtModelMixin, UpdatedAtModelMixin):
-    image = models.ImageField(upload_to="articleimages/")
-
-    class Meta:
-        ordering = ["-created_at"]
-
-
 class ArticleCategory(CreatedAtModelMixin, UpdatedAtModelMixin):
     objects = models.Manager()
     published = PublishedManager()
@@ -32,7 +25,7 @@ class ArticleCategory(CreatedAtModelMixin, UpdatedAtModelMixin):
         verbose_name = _('Article Category')
         verbose_name_plural = _('Article Categories')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -62,7 +55,7 @@ class Article(CreatedAtModelMixin, UpdatedAtModelMixin):
         verbose_name = _("article")
         verbose_name_plural = _("articles")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):

@@ -47,18 +47,6 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Article Categories',
             },
         ),
-        migrations.CreateModel(
-            name='ArticleImage',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_at', models.DateTimeField(db_index=True, editable=False)),
-                ('updated_at', models.DateTimeField(db_index=True, editable=False)),
-                ('image', models.ImageField(upload_to='articleimages/')),
-            ],
-            options={
-                'ordering': ['-created_at'],
-            },
-        ),
         migrations.AddField(
             model_name='article',
             name='category',

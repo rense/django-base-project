@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from apps.articles.forms import ArticleAdminForm
-from apps.articles.models import Article, ArticleImage, ArticleCategory
+from apps.articles.models import Article, ArticleCategory
 from apps.main.list_filters import PublishedListFilter
 
 
@@ -58,14 +58,3 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
             )}
         ),
     ]
-
-
-@admin.register(ArticleImage)
-class ArticleImageAdmin(admin.ModelAdmin):
-    search_fields = ['body', 'name']
-    readonly_fields = ['created_at', 'updated_at']
-
-    list_display = (
-        'created_at',
-        'updated_at'
-    )
