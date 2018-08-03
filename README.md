@@ -10,14 +10,12 @@ It contains:
 - a 'settings' package/directory. Base settings are in settings/__init__.py, and can be overridden/expanded in environment-based settings-files, for example settings/development.py. An environment-file containing the name of the environment is expected. See 'getting started' below. I guess it's a bit like `https://code.djangoproject.com/wiki/SplitSettings#SimplePackageOrganizationforEnvironments`, but simpler.
 - a 'main' app, containing useful model-mixins and a default viewset;
 - a base 'articles' app;
-- a shiny django-suit admin (http://djangosuit.com/):
-    - AdminSite override, showing a custom admin 'home' (apps/main/admin_site.py);
-    - Basic site-wide 'Latest Actions' admin functionality (not per user);
 - an admin list-display for the internal django admin-log (extended Latest Actions stuff);
+- django-suit v2 admin  (http://djangosuit.com/, https://github.com/darklow/django-suit/issues/475);
 - django-rest-camel for DRF renderers/parsers; automatic camelcase to snake-case (and vice-versa) conversion;
 - JSON webtoken authentication (using djangorestframework-jwt);
-- basic invoke commands for local development (`inv run`!), see tasks.py;
-- CORS middleware (using django-cors-headers).
+- CORS middleware (using django-cors-headers);
+- basic invoke commands for local development (`inv run`!), see tasks.py,
 
 
 ### Requirements/dependencies
@@ -40,4 +38,3 @@ The default development settings contain mysql-settings. Change to your liking.
 
 ### Notes
 - If installing Pillow fails (jpeg required), see https://stackoverflow.com/a/34631976
-
