@@ -1,5 +1,6 @@
 import datetime
 import os
+
 from environment import base_dir as BASE_DIR
 
 DEBUG = False
@@ -10,7 +11,6 @@ ALLOWED_HOSTS = []
 SITE_TITLE = 'Base Project'
 SITE_ADMIN_TITLE = '{} Administration'.format(SITE_TITLE)
 
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -20,12 +20,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'suit',
+    'corsheaders',
     'mptt',
-
     'django.contrib.admin',
-
     'rest_framework',
-
     'django_extensions',
 
     'apps.main',
@@ -33,9 +31,9 @@ INSTALLED_APPS = (
     'apps.articles'
 )
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -43,7 +41,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -65,7 +62,6 @@ REST_FRAMEWORK = {
         'rest_camel.render.CamelCaseJSONRenderer',
     )
 }
-
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -93,12 +89,12 @@ ROOT_URLCONF = 'urls'
 WSGI_APPLICATION = 'wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
 ]
-
 
 JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
@@ -106,7 +102,6 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=30),
     'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=360),
 }
-
 
 LANGUAGE_CODE = 'en-us'
 

@@ -4,6 +4,7 @@ DEBUG = True
 
 SECRET_KEY = 'development-nonsense-key'
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 DATABASE_DEFAULT = {
     'ENGINE': 'django.db.backends.mysql',

@@ -18,6 +18,7 @@ It contains:
 - django-rest-camel for DRF renderers/parsers; automatic camelcase to snake-case (and vice-versa) conversion;
 - JSON webtoken authentication (using djangorestframework-jwt);
 - basic invoke commands for local development (`inv run`!), see tasks.py;
+- CORS middleware (using django-cors-headers).
 
 
 ### Requirements/dependencies
@@ -29,7 +30,7 @@ The default development settings contain mysql-settings. Change to your liking.
 
 
 ### Getting started
-- Create a new virtualenv with Python3: `$ virtualenv --python=python3 <env-name>`;
+- Create a new virtualenv with Python 3: `$ virtualenv --python=python3 <env-name>`;
 - Install pip-tools and invoke: `$ pip install pip-tools invoke`;
 - Clone/download/archive this repository and cd into it;
 - Create your environment file, for instance 'development': `$ echo "development" > environment`;

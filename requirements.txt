@@ -10,6 +10,7 @@ bpython==0.17.1
 certifi==2018.4.16        # via requests
 chardet==3.0.4            # via requests
 curtsies==0.3.0           # via bpython
+django-cors-headers==2.4.0
 django-extensions==2.1.0
 django-js-asset==1.1.0    # via django-mptt
 django-mptt==0.9.0

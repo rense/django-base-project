@@ -3,6 +3,7 @@
 bpython
 
 django
+django-cors-headers
 django-extensions
 django-mptt
 djangorestframework
