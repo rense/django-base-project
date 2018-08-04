@@ -19,6 +19,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'apps.main.suit_config.SuitConfig',
+    'filer',
+    'easy_thumbnails',
     'corsheaders',
     'django.contrib.admin',
     'rest_framework',
@@ -106,6 +108,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+# django-filer settings
+FILER_ENABLE_PERMISSIONS = False
+FILER_IS_PUBLIC_DEFAULT = True
 
 # import choices/constants
 from settings._choices import *

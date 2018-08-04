@@ -60,6 +60,33 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
+FILER_STORAGES = {
+    'public': {
+        'main': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': os.path.join(MEDIA_ROOT, 'images'),
+                'base_url': os.path.join(MEDIA_URL, 'images')
+            },
+            'UPLOAD_TO': 'filer.utils.generate_filename.randomized',
+            'UPLOAD_TO_PREFIX': '',
+        },
+        'thumbnails': {
+            'ENGINE': 'filer.storage.PublicFileSystemStorage',
+            'OPTIONS': {
+                'location': os.path.join(MEDIA_ROOT, 'images', 'thumbnails'),
+                'base_url': os.path.join(MEDIA_URL, 'images', 'thumbnails')
+            },
+        },
+    }
+}
+
+FILER_DEBUG = True
+FILER_ENABLE_LOGGING = True
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+
 REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += (
     'rest_framework.renderers.BrowsableAPIRenderer',
 )

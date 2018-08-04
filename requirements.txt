@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+-e git+https://github.com/rense/django-filer#egg=django-filer
 -e git+https://github.com/rense/django-rest-camel#egg=django-rest-camel
 -e git+https://github.com/rense/django-suit.git@v2#egg=django-suit
 blessings==1.7            # via curtsies
@@ -13,9 +14,13 @@ chardet==3.0.4            # via requests
 curtsies==0.3.0           # via bpython
 django-cors-headers==2.4.0
 django-extensions==2.1.0
+django-js-asset==1.1.0    # via django-mptt
+django-mptt==0.9.1
+django-polymorphic==2.0.2
 django==2.1
 djangorestframework-jwt==1.11.0
 djangorestframework==3.8.2
+easy-thumbnails==2.5
 greenlet==0.4.14          # via bpython
 idna==2.7                 # via requests
 invoke==1.1.1
@@ -27,6 +32,7 @@ pytz==2018.5              # via django
 requests==2.19.1          # via bpython
 six==1.11.0               # via blessings, bpython, django-extensions
 typing==3.6.4             # via curtsies
+unidecode==1.0.22
 urllib3==1.23             # via requests
 wcwidth==0.1.7            # via curtsies
 werkzeug==0.14.1

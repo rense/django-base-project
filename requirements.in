@@ -1,5 +1,6 @@
 -e git+https://github.com/rense/django-suit.git@v2#egg=django-suit
 -e git+https://github.com/rense/django-rest-camel#egg=django-rest-camel
+-e git+https://github.com/rense/django-filer#egg=django-filer
 
 bpython
 
