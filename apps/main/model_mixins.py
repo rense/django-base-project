@@ -6,10 +6,7 @@ from django.utils import timezone
 
 
 class HashedKeyModelMixin(models.Model):
-    """ Mixin that adds an hashed key called 'key'
-        that can be exposed to the outside world.
-
-        This is the one that should be used by DRF serializers!
+    """ Mixin that adds a unique uuid4-hex key
     """
     key = models.CharField(
         max_length=32,
@@ -23,13 +20,10 @@ class HashedKeyModelMixin(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        if not self.key:  # '' is not unique, NULL is ignored
-            self.key = None
-
-        super(HashedKeyModelMixin, self).save(*args, **kwargs)
+        # key should be added _before_ save for post_save signals
         if not self.key or self.key is None:
             self.key = uuid.uuid4().hex
-            models.Model.save(self, update_fields=['key'])
+        super(HashedKeyModelMixin, self).save(*args, **kwargs)
 
 
 class CreatedAtModelMixin(models.Model):
