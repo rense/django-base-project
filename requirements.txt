@@ -9,30 +9,30 @@
 -e git+https://github.com/rense/django-suit.git@v2#egg=django-suit
 blessings==1.7            # via curtsies
 bpython==0.17.1
-certifi==2018.4.16        # via requests
+certifi==2018.11.29       # via requests
 chardet==3.0.4            # via requests
 curtsies==0.3.0           # via bpython
 django-cors-headers==2.4.0
-django-extensions==2.1.0
+django-extensions==2.1.4
 django-js-asset==1.1.0    # via django-mptt
 django-mptt==0.9.1
-django-polymorphic==2.0.2
-django==2.1
+django-polymorphic==2.0.3
+django==2.1.4
 djangorestframework-jwt==1.11.0
-djangorestframework==3.8.2
+djangorestframework==3.9.0
 easy-thumbnails==2.5
-greenlet==0.4.14          # via bpython
-idna==2.7                 # via requests
-invoke==1.1.1
-mysqlclient==1.3.13
-pillow==5.2.0
-pygments==2.2.0           # via bpython
-pyjwt==1.6.4              # via djangorestframework-jwt
-pytz==2018.5              # via django
-requests==2.19.1          # via bpython
-six==1.11.0               # via blessings, bpython, django-extensions
-typing==3.6.4             # via curtsies
-unidecode==1.0.22
-urllib3==1.23             # via requests
+greenlet==0.4.15          # via bpython
+idna==2.8                 # via requests
+invoke==1.2.0
+mysqlclient==1.3.14
+pillow==5.3.0
+pygments==2.3.1           # via bpython
+pyjwt==1.7.1              # via djangorestframework-jwt
+pytz==2018.7              # via django
+requests==2.21.0          # via bpython
+six==1.12.0               # via blessings, bpython, django-extensions
+typing==3.6.6             # via curtsies
+unidecode==1.0.23
+urllib3==1.24.1           # via requests
 wcwidth==0.1.7            # via curtsies
 werkzeug==0.14.1
