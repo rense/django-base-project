@@ -4,7 +4,7 @@
 
 bpython
 
-django
+django>=2.2.2
 django-cors-headers
 django-extensions
 djangorestframework
