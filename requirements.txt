@@ -36,4 +36,4 @@ typing==3.6.6             # via curtsies
 unidecode==1.0.23
 urllib3==1.24.3           # via requests
 wcwidth==0.1.7            # via curtsies
-werkzeug==0.15.2
+werkzeug==0.15.3
