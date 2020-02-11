@@ -17,7 +17,7 @@ django-extensions==2.1.6
 django-js-asset==1.2.2    # via django-mptt
 django-mptt==0.9.1
 django-polymorphic==2.0.3
-django==2.2.4
+django==2.2.10
 djangorestframework-jwt==1.11.0
 djangorestframework==3.9.3
 easy-thumbnails==2.6
