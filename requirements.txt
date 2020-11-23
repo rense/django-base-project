@@ -25,7 +25,7 @@ greenlet==0.4.15          # via bpython
 idna==2.8                 # via requests
 invoke==1.2.0             # via -r requirements.in
 mysqlclient==1.4.2.post1  # via -r requirements.in
-pillow==6.0.0             # via -r requirements.in, easy-thumbnails
+pillow==7.1.0             # via -r requirements.in, easy-thumbnails
 pygments==2.3.1           # via bpython
 pyjwt==1.7.1              # via djangorestframework-jwt
 pytz==2019.1              # via django
@@ -36,4 +36,4 @@ typing==3.6.6             # via curtsies
 unidecode==1.0.23         # via django-filer
 urllib3==1.24.3           # via requests
 wcwidth==0.1.7            # via curtsies
-werkzeug==0.15.3
+werkzeug==0.15.3          # via -r requirements.in
